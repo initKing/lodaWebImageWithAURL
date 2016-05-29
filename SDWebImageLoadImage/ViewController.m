@@ -116,6 +116,19 @@ static NSString *cellId = @"cellId";
         cell.iconView.image = image;
     }
     
+    UIImage *cacheImage = [UIImage imageWithContentsOfFile:[self cachePathWithUrlString:model.icon]];;
+    // 判断沙盒中是否有图像
+    if (cacheImage != nil) {
+        // 1> 直接设置cell的image
+        cell.iconView.image = cacheImage;
+        
+        // 2> 将沙盒中的缓存保存至内存缓存 -- 内存缓存读写速度快
+        [_imageCache setObject:cacheImage forKey:model.icon];
+        
+        return cell;
+    }
+    
+    
     // cell 复用 --> 使用 直接设置为nil 或 占位图像(推荐)
     cell.iconView.image = nil;
   

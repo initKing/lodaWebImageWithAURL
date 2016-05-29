@@ -51,6 +51,8 @@
 		DC141FE71CFB18DC004EE990 /* WebImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC141FE51CFB18DC004EE990 /* WebImageViewCell.m */; };
 		DC141FE81CFB18DC004EE990 /* WebImageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC141FE61CFB18DC004EE990 /* WebImageViewCell.xib */; };
 		DC141FEB1CFB4D73004EE990 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = DC141FEA1CFB4D73004EE990 /* NSString+Hash.m */; };
+		DC141FEF1CFB5171004EE990 /* WebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DC141FEE1CFB5171004EE990 /* WebImageManager.m */; };
+		DC141FF21CFB61F4004EE990 /* WebImageDownLoadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DC141FF11CFB61F4004EE990 /* WebImageDownLoadOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +163,10 @@
 		DC141FE61CFB18DC004EE990 /* WebImageViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebImageViewCell.xib; sourceTree = "<group>"; };
 		DC141FE91CFB4D73004EE990 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
 		DC141FEA1CFB4D73004EE990 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
+		DC141FED1CFB5171004EE990 /* WebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebImageManager.h; sourceTree = "<group>"; };
+		DC141FEE1CFB5171004EE990 /* WebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebImageManager.m; sourceTree = "<group>"; };
+		DC141FF01CFB61F4004EE990 /* WebImageDownLoadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebImageDownLoadOperation.h; sourceTree = "<group>"; };
+		DC141FF11CFB61F4004EE990 /* WebImageDownLoadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebImageDownLoadOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +219,7 @@
 			children = (
 				DC141F981CFB09C3004EE990 /* ThirdLib */,
 				DC141F781CFB09B8004EE990 /* Additions */,
+				DC141FEC1CFB5145004EE990 /* WebImageManager */,
 				DC141FDF1CFB0F86004EE990 /* Model */,
 				DC141FE01CFB0F86004EE990 /* View */,
 				DC141F481CFB0593004EE990 /* AppDelegate.h */,
@@ -374,6 +381,17 @@
 			path = Additions/View;
 			sourceTree = "<group>";
 		};
+		DC141FEC1CFB5145004EE990 /* WebImageManager */ = {
+			isa = PBXGroup;
+			children = (
+				DC141FED1CFB5171004EE990 /* WebImageManager.h */,
+				DC141FEE1CFB5171004EE990 /* WebImageManager.m */,
+				DC141FF01CFB61F4004EE990 /* WebImageDownLoadOperation.h */,
+				DC141FF11CFB61F4004EE990 /* WebImageDownLoadOperation.m */,
+			);
+			path = WebImageManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -529,6 +547,7 @@
 				DC141F911CFB09B8004EE990 /* NSObject+CZAddition.m in Sources */,
 				DC141FCE1CFB09C3004EE990 /* AFURLSessionManager.m in Sources */,
 				DC141FD41CFB09C3004EE990 /* SDWebImageDownloader.m in Sources */,
+				DC141FF21CFB61F4004EE990 /* WebImageDownLoadOperation.m in Sources */,
 				DC141FD91CFB09C3004EE990 /* UIImage+GIF.m in Sources */,
 				DC141FCD1CFB09C3004EE990 /* AFURLResponseSerialization.m in Sources */,
 				DC141F471CFB0593004EE990 /* main.m in Sources */,
@@ -537,6 +556,7 @@
 				DC141FCC1CFB09C3004EE990 /* AFURLRequestSerialization.m in Sources */,
 				DC141FDA1CFB09C3004EE990 /* UIImage+MultiFormat.m in Sources */,
 				DC141FCB1CFB09C3004EE990 /* AFSecurityPolicy.m in Sources */,
+				DC141FEF1CFB5171004EE990 /* WebImageManager.m in Sources */,
 				DC141FD21CFB09C3004EE990 /* SDWebImageCompat.m in Sources */,
 				DC141F941CFB09B8004EE990 /* UILabel+CZAddition.m in Sources */,
 				DC141FE31CFB0FD0004EE990 /* WebImageModel.m in Sources */,
