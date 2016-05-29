@@ -65,6 +65,8 @@ static NSString *cellId = @"cellId";
     
     // 假设收到内存警告, 清除图像缓冲池
     [_imageCache removeAllObjects];
+    // 收到内存警告清空所有操作
+    [_operationCache removeAllObjects];
 }
 
 #pragma mark - 加载数据
@@ -117,17 +119,28 @@ static NSString *cellId = @"cellId";
     cell.iconView.image = nil;
   
     // 使用异步加载图像
-    [_loadImageQueue addOperationWithBlock:^{
+    NSBlockOperation *operatin = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"异步下载图像");
         NSURL *url = [NSURL URLWithString:_imageList[indexPath.row].icon];
         NSData *data = [NSData dataWithContentsOfURL:url];
         UIImage *image = [UIImage imageWithData:data];
         
         [_imageCache setObject:image forKey:model.icon];
+        
+        // 下载完成后 将图像地址对应的 操作从操作缓冲池中移除
+        [_operationCache removeObjectForKey:model.icon];
+       
         // 通知主线程更新 UI
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             cell.iconView.image = image;
+            NSLog(@"队列中的操作数%zd",_loadImageQueue.operationCount);
         }];
+        
     }];
+   
+    [_loadImageQueue addOperation:operatin];
+    // 将加载图像的操作 加入操作缓冲池
+    [_operationCache setObject:operatin forKey:model.icon];
     
     return cell;
 }
