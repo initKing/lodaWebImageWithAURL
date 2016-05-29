@@ -21,7 +21,9 @@ static NSString *cellId = @"cellId";
 @property (nonatomic, strong) NSArray <WebImageModel *> *imageList;
 @end
 
-@implementation ViewController
+@implementation ViewController {
+    NSOperationQueue *_loadImageQueue;
+}
 
 - (void)loadView {
     // 实例化tableView
@@ -39,6 +41,9 @@ static NSString *cellId = @"cellId";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadData];
+    
+    // 实例化全局队列
+    _loadImageQueue = [[NSOperationQueue alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,6 +89,19 @@ static NSString *cellId = @"cellId";
     WebImageViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     cell.titleLabel.text = _imageList[indexPath.row].name;
     cell.loadCountLabel.text = _imageList[indexPath.row].download;
+    cell.iconView.image = nil;
+    // 使用异步加载图像
+    [_loadImageQueue addOperationWithBlock:^{
+        NSURL *url = [NSURL URLWithString:_imageList[indexPath.row].icon];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        UIImage *image = [UIImage imageWithData:data];
+        
+        // 通知主线程更新 UI
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            cell.iconView.image = image;
+            
+        }];
+    }];
     
     return cell;
 }

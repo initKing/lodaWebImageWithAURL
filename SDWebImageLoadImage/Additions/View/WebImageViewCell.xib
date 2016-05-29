@@ -14,34 +14,58 @@
                 <rect key="frame" x="0.0" y="0.0" width="333" height="70.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rk8-DY-Pzj">
-                        <rect key="frame" x="10" y="0.0" width="73" height="70"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="73" id="HVK-sp-Eal"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titleLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NA6-Cr-Xf3">
-                        <rect key="frame" x="91" y="10" width="70.5" height="21"/>
+                        <rect key="frame" x="78" y="10" width="70.5" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loadCount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1o-vZ-Nq0">
-                        <rect key="frame" x="91" y="49" width="62.5" height="16"/>
+                        <rect key="frame" x="78" y="44.5" width="62.5" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rk8-DY-Pzj">
+                        <rect key="frame" x="10" y="10" width="60" height="50.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="FSk-DQ-qJq"/>
+                            <constraint firstAttribute="width" constant="50" id="HVK-sp-Eal"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="HVK-sp-Eal"/>
+                            </mask>
+                        </variation>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Rk8-DY-Pzj" secondAttribute="bottom" constant="10" id="1lV-xg-zm0"/>
                     <constraint firstItem="d1o-vZ-Nq0" firstAttribute="leading" secondItem="Rk8-DY-Pzj" secondAttribute="trailing" constant="8" id="E64-28-YTM"/>
                     <constraint firstItem="NA6-Cr-Xf3" firstAttribute="leading" secondItem="Rk8-DY-Pzj" secondAttribute="trailing" constant="8" id="FZg-6O-Pwe"/>
-                    <constraint firstItem="NA6-Cr-Xf3" firstAttribute="top" secondItem="Rk8-DY-Pzj" secondAttribute="top" constant="10" id="FuS-Tf-IJf"/>
+                    <constraint firstItem="NA6-Cr-Xf3" firstAttribute="top" secondItem="Rk8-DY-Pzj" secondAttribute="top" constant="20" id="FuS-Tf-IJf"/>
+                    <constraint firstItem="d1o-vZ-Nq0" firstAttribute="bottom" secondItem="Rk8-DY-Pzj" secondAttribute="bottom" id="P0E-ba-oVJ"/>
+                    <constraint firstItem="d1o-vZ-Nq0" firstAttribute="leading" secondItem="Rk8-DY-Pzj" secondAttribute="trailing" constant="8" id="R6I-VU-EwJ"/>
                     <constraint firstAttribute="bottom" secondItem="Rk8-DY-Pzj" secondAttribute="bottom" id="WId-Ee-xkC"/>
-                    <constraint firstItem="d1o-vZ-Nq0" firstAttribute="bottom" secondItem="Rk8-DY-Pzj" secondAttribute="bottom" constant="-5" id="bMI-31-LMy"/>
+                    <constraint firstItem="Rk8-DY-Pzj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Z2z-Gk-3kh"/>
+                    <constraint firstItem="d1o-vZ-Nq0" firstAttribute="bottom" secondItem="Rk8-DY-Pzj" secondAttribute="bottom" constant="-20" id="bMI-31-LMy"/>
                     <constraint firstItem="Rk8-DY-Pzj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="bog-BD-sc1"/>
+                    <constraint firstItem="NA6-Cr-Xf3" firstAttribute="leading" secondItem="Rk8-DY-Pzj" secondAttribute="trailing" constant="8" id="rGT-kd-gqi"/>
+                    <constraint firstItem="Rk8-DY-Pzj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="tP4-k8-8XE"/>
+                    <constraint firstItem="NA6-Cr-Xf3" firstAttribute="top" secondItem="Rk8-DY-Pzj" secondAttribute="top" id="u7p-hS-EyM"/>
                     <constraint firstItem="Rk8-DY-Pzj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="wVF-Sv-Cad"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="WId-Ee-xkC"/>
+                        <exclude reference="bog-BD-sc1"/>
+                        <exclude reference="wVF-Sv-Cad"/>
+                        <exclude reference="FZg-6O-Pwe"/>
+                        <exclude reference="FuS-Tf-IJf"/>
+                        <exclude reference="E64-28-YTM"/>
+                        <exclude reference="bMI-31-LMy"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="iconView" destination="Rk8-DY-Pzj" id="yUr-H1-dS5"/>
