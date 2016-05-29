@@ -48,6 +48,8 @@
 		DC141FDD1CFB09C3004EE990 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DC141FC61CFB09C3004EE990 /* UIImageView+WebCache.m */; };
 		DC141FDE1CFB09C3004EE990 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DC141FC81CFB09C3004EE990 /* UIView+WebCacheOperation.m */; };
 		DC141FE31CFB0FD0004EE990 /* WebImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DC141FE21CFB0FD0004EE990 /* WebImageModel.m */; };
+		DC141FE71CFB18DC004EE990 /* WebImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC141FE51CFB18DC004EE990 /* WebImageViewCell.m */; };
+		DC141FE81CFB18DC004EE990 /* WebImageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC141FE61CFB18DC004EE990 /* WebImageViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +155,9 @@
 		DC141FC81CFB09C3004EE990 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		DC141FE11CFB0FD0004EE990 /* WebImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebImageModel.h; sourceTree = "<group>"; };
 		DC141FE21CFB0FD0004EE990 /* WebImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebImageModel.m; sourceTree = "<group>"; };
+		DC141FE41CFB18DC004EE990 /* WebImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebImageViewCell.h; sourceTree = "<group>"; };
+		DC141FE51CFB18DC004EE990 /* WebImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebImageViewCell.m; sourceTree = "<group>"; };
+		DC141FE61CFB18DC004EE990 /* WebImageViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebImageViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,6 +361,9 @@
 		DC141FE01CFB0F86004EE990 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DC141FE41CFB18DC004EE990 /* WebImageViewCell.h */,
+				DC141FE51CFB18DC004EE990 /* WebImageViewCell.m */,
+				DC141FE61CFB18DC004EE990 /* WebImageViewCell.xib */,
 			);
 			name = View;
 			path = Additions/View;
@@ -465,6 +473,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC141F551CFB0593004EE990 /* LaunchScreen.storyboard in Resources */,
+				DC141FE81CFB18DC004EE990 /* WebImageViewCell.xib in Resources */,
 				DC141F521CFB0593004EE990 /* Assets.xcassets in Resources */,
 				DC141F501CFB0593004EE990 /* Main.storyboard in Resources */,
 			);
@@ -497,6 +506,7 @@
 				DC141FDB1CFB09C3004EE990 /* UIImage+WebP.m in Sources */,
 				DC141FDD1CFB09C3004EE990 /* UIImageView+WebCache.m in Sources */,
 				DC141FD51CFB09C3004EE990 /* SDWebImageDownloaderOperation.m in Sources */,
+				DC141FE71CFB18DC004EE990 /* WebImageViewCell.m in Sources */,
 				DC141F4D1CFB0593004EE990 /* ViewController.m in Sources */,
 				DC141FDC1CFB09C3004EE990 /* UIImageView+HighlightedWebCache.m in Sources */,
 				DC141F951CFB09B8004EE990 /* UIScreen+CZAddition.m in Sources */,
@@ -756,6 +766,7 @@
 				DC141F711CFB0593004EE990 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC141F721CFB0593004EE990 /* Build configuration list for PBXNativeTarget "SDWebImageLoadImageTests" */ = {
 			isa = XCConfigurationList;
@@ -764,6 +775,7 @@
 				DC141F741CFB0593004EE990 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC141F751CFB0593004EE990 /* Build configuration list for PBXNativeTarget "SDWebImageLoadImageUITests" */ = {
 			isa = XCConfigurationList;
@@ -772,6 +784,7 @@
 				DC141F771CFB0593004EE990 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
