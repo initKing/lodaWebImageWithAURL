@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "AFNetworking.h"
 #import "WebImageModel.h"
+#import "WebImageViewCell.h"
 
 static NSString *cellId = @"cellId";
 @interface ViewController ()<UITableViewDataSource>
@@ -29,7 +30,8 @@ static NSString *cellId = @"cellId";
     _tableView.dataSource = self;
     
     // 注册原型cell
-    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellId];
+    [_tableView registerNib:[UINib nibWithNibName:@"WebImageViewCell" bundle:nil] forCellReuseIdentifier:cellId];
+    
     self.view = _tableView;
     
 }
@@ -79,8 +81,9 @@ static NSString *cellId = @"cellId";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
-    cell.textLabel.text = _imageList[indexPath.row].name;
+    WebImageViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    cell.titleLabel.text = _imageList[indexPath.row].name;
+    cell.loadCountLabel.text = _imageList[indexPath.row].download;
     
     return cell;
 }

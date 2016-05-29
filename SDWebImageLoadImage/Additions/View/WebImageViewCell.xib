@@ -21,13 +21,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titleLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NA6-Cr-Xf3">
-                        <rect key="frame" x="91" y="0.0" width="70.5" height="21"/>
+                        <rect key="frame" x="91" y="10" width="70.5" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loadCount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1o-vZ-Nq0">
-                        <rect key="frame" x="91" y="54" width="62.5" height="16"/>
+                        <rect key="frame" x="91" y="49" width="62.5" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -36,9 +36,9 @@
                 <constraints>
                     <constraint firstItem="d1o-vZ-Nq0" firstAttribute="leading" secondItem="Rk8-DY-Pzj" secondAttribute="trailing" constant="8" id="E64-28-YTM"/>
                     <constraint firstItem="NA6-Cr-Xf3" firstAttribute="leading" secondItem="Rk8-DY-Pzj" secondAttribute="trailing" constant="8" id="FZg-6O-Pwe"/>
-                    <constraint firstItem="NA6-Cr-Xf3" firstAttribute="top" secondItem="Rk8-DY-Pzj" secondAttribute="top" id="FuS-Tf-IJf"/>
+                    <constraint firstItem="NA6-Cr-Xf3" firstAttribute="top" secondItem="Rk8-DY-Pzj" secondAttribute="top" constant="10" id="FuS-Tf-IJf"/>
                     <constraint firstAttribute="bottom" secondItem="Rk8-DY-Pzj" secondAttribute="bottom" id="WId-Ee-xkC"/>
-                    <constraint firstItem="d1o-vZ-Nq0" firstAttribute="bottom" secondItem="Rk8-DY-Pzj" secondAttribute="bottom" id="bMI-31-LMy"/>
+                    <constraint firstItem="d1o-vZ-Nq0" firstAttribute="bottom" secondItem="Rk8-DY-Pzj" secondAttribute="bottom" constant="-5" id="bMI-31-LMy"/>
                     <constraint firstItem="Rk8-DY-Pzj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="bog-BD-sc1"/>
                     <constraint firstItem="Rk8-DY-Pzj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="wVF-Sv-Cad"/>
                 </constraints>
