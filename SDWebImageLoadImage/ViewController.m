@@ -19,6 +19,16 @@ static NSString *cellId = @"cellId";
  *  网络图像模型数组
  */
 @property (nonatomic, strong) NSArray <WebImageModel *> *imageList;
+
+/**
+ *  图像缓冲池
+ */
+@property (nonatomic, strong) NSMutableDictionary *imageCache;
+
+/**
+ *  操作缓冲池
+ */
+@property (nonatomic, strong) NSMutableDictionary *operationCache;
 @end
 
 @implementation ViewController {
@@ -44,11 +54,17 @@ static NSString *cellId = @"cellId";
     
     // 实例化全局队列
     _loadImageQueue = [[NSOperationQueue alloc] init];
+    
+    // 实例化缓冲池
+    _imageCache = [NSMutableDictionary dictionary];
+    _operationCache = [NSMutableDictionary dictionary];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    // 假设收到内存警告, 清除图像缓冲池
+    [_imageCache removeAllObjects];
 }
 
 #pragma mark - 加载数据
@@ -87,19 +103,29 @@ static NSString *cellId = @"cellId";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     WebImageViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
-    cell.titleLabel.text = _imageList[indexPath.row].name;
-    cell.loadCountLabel.text = _imageList[indexPath.row].download;
+    WebImageModel *model = _imageList[indexPath.row];
+    cell.titleLabel.text = model.name;
+    cell.loadCountLabel.text = model.download;
+    
+    // 判断如果缓冲池中有视图
+    UIImage *image = _imageCache[model.icon];
+    if (image != nil) {
+        cell.iconView.image = image;
+    }
+    
+    // cell 复用 --> 使用 直接设置为nil 或 占位图像(推荐)
     cell.iconView.image = nil;
+  
     // 使用异步加载图像
     [_loadImageQueue addOperationWithBlock:^{
         NSURL *url = [NSURL URLWithString:_imageList[indexPath.row].icon];
         NSData *data = [NSData dataWithContentsOfURL:url];
         UIImage *image = [UIImage imageWithData:data];
         
+        [_imageCache setObject:image forKey:model.icon];
         // 通知主线程更新 UI
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             cell.iconView.image = image;
-            
         }];
     }];
     
