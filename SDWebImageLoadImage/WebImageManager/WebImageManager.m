@@ -9,5 +9,12 @@
 #import "WebImageManager.h"
 
 @implementation WebImageManager
-
++ (instancetype)sharedManager {
+    static id instance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[self alloc] init];
+    });
+    return instance;
+}
 @end

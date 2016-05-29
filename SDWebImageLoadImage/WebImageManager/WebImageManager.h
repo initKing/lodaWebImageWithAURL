@@ -6,10 +6,13 @@
 //  Copyright © 2016年 CrazyHacker. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 /**
  *  网络图像管理者
  */
 @interface WebImageManager : NSObject
-
+/**
+ *  图像管理单例
+ */
++ (instancetype)sharedManager;
 @end
