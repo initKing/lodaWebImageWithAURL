@@ -10,8 +10,9 @@
 #import "AFNetworking.h"
 #import "WebImageModel.h"
 
+static NSString *cellId = @"cellId";
+@interface ViewController ()<UITableViewDataSource>
 
-@interface ViewController ()
 @property (nonatomic, strong) UITableView *tableView;
 /**
  *  网络图像模型数组
@@ -24,7 +25,11 @@
 - (void)loadView {
     // 实例化tableView
     _tableView = [[UITableView alloc] init];
+    _tableView.rowHeight = 100;
+    _tableView.dataSource = self;
     
+    // 注册原型cell
+    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellId];
     self.view = _tableView;
     
 }
@@ -58,14 +63,26 @@
             // KVC
             [arrayM addObject:model];
         }
-        
+        // 使用属性记录模型字典
         _imageList = arrayM.copy;
         
+        [_tableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"加载数据失败%@",error);
     }];
-
-
-
 }
+
+#pragma mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return _imageList.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    cell.textLabel.text = _imageList[indexPath.row].name;
+    
+    return cell;
+}
+
 @end
