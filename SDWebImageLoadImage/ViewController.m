@@ -10,6 +10,7 @@
 #import "AFNetworking.h"
 #import "WebImageModel.h"
 #import "WebImageViewCell.h"
+#import "CZAdditions.h"
 
 static NSString *cellId = @"cellId";
 @interface ViewController ()<UITableViewDataSource>
@@ -125,7 +126,12 @@ static NSString *cellId = @"cellId";
         NSData *data = [NSData dataWithContentsOfURL:url];
         UIImage *image = [UIImage imageWithData:data];
         
-        [_imageCache setObject:image forKey:model.icon];
+        if (image != nil) {
+            [_imageCache setObject:image forKey:model.icon];
+            
+            // 将图像写入沙盒
+            [data writeToFile:[self cachePathWithUrlString:model.icon] atomically:YES];
+        }
         
         // 下载完成后 将图像地址对应的 操作从操作缓冲池中移除
         [_operationCache removeObjectForKey:model.icon];
@@ -143,6 +149,18 @@ static NSString *cellId = @"cellId";
     [_operationCache setObject:operatin forKey:model.icon];
     
     return cell;
+}
+
+#pragma mark - 根据图像url返回图像的沙盒全路径
+- (NSString *)cachePathWithUrlString:(NSString *)urlString {
+    // 1. 获取沙盒路径
+    NSString *urlDir = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
+    
+    // 2. 成成md5文件名
+    NSString *fileName = [urlString cz_md5String];
+    
+    // 3. 返回拼接全路径
+    return [urlDir stringByAppendingPathComponent:fileName];
 }
 
 @end

@@ -50,6 +50,7 @@
 		DC141FE31CFB0FD0004EE990 /* WebImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DC141FE21CFB0FD0004EE990 /* WebImageModel.m */; };
 		DC141FE71CFB18DC004EE990 /* WebImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC141FE51CFB18DC004EE990 /* WebImageViewCell.m */; };
 		DC141FE81CFB18DC004EE990 /* WebImageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC141FE61CFB18DC004EE990 /* WebImageViewCell.xib */; };
+		DC141FEB1CFB4D73004EE990 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = DC141FEA1CFB4D73004EE990 /* NSString+Hash.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +159,8 @@
 		DC141FE41CFB18DC004EE990 /* WebImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebImageViewCell.h; sourceTree = "<group>"; };
 		DC141FE51CFB18DC004EE990 /* WebImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebImageViewCell.m; sourceTree = "<group>"; };
 		DC141FE61CFB18DC004EE990 /* WebImageViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebImageViewCell.xib; sourceTree = "<group>"; };
+		DC141FE91CFB4D73004EE990 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
+		DC141FEA1CFB4D73004EE990 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +258,8 @@
 			isa = PBXGroup;
 			children = (
 				DC141F791CFB09B8004EE990 /* CZAdditions.h */,
+				DC141FE91CFB4D73004EE990 /* NSString+Hash.h */,
+				DC141FEA1CFB4D73004EE990 /* NSString+Hash.m */,
 				DC141F7A1CFB09B8004EE990 /* NSArray+CZAddition.h */,
 				DC141F7B1CFB09B8004EE990 /* NSArray+CZAddition.m */,
 				DC141F7C1CFB09B8004EE990 /* NSArray+Log.h */,
@@ -517,6 +522,7 @@
 				DC141FD11CFB09C3004EE990 /* SDImageCache.m in Sources */,
 				DC141F901CFB09B8004EE990 /* NSAttributedString+CZAdditon.m in Sources */,
 				DC141FCA1CFB09C3004EE990 /* AFNetworkReachabilityManager.m in Sources */,
+				DC141FEB1CFB4D73004EE990 /* NSString+Hash.m in Sources */,
 				DC141FD61CFB09C3004EE990 /* SDWebImageManager.m in Sources */,
 				DC141FDE1CFB09C3004EE990 /* UIView+WebCacheOperation.m in Sources */,
 				DC141F4A1CFB0593004EE990 /* AppDelegate.m in Sources */,
