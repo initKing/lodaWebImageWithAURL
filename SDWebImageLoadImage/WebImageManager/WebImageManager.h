@@ -12,6 +12,21 @@
  */
 @interface WebImageManager : NSObject
 /**
+ *  图像缓冲池
+ */
+@property (nonatomic, strong) NSMutableDictionary *imageCache;
+
+/**
+ *  操作缓冲池
+ */
+@property (nonatomic, strong) NSMutableDictionary *operationCache;
+
+/**
+ *  下载队列
+ */
+@property (nonatomic, strong) NSOperationQueue *downQueue;
+
+/**
  *  图像管理单例
  */
 + (instancetype)sharedManager;

@@ -17,4 +17,19 @@
     });
     return instance;
 }
+
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        
+        // 实例化 属性
+        _imageCache = [NSMutableDictionary dictionary];
+        
+        _operationCache = [NSMutableDictionary dictionary];
+        
+        _downQueue = [[NSOperationQueue alloc] init];
+    }
+    return self;
+}
 @end

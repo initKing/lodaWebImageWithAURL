@@ -11,6 +11,7 @@
 #import "WebImageModel.h"
 #import "WebImageViewCell.h"
 #import "CZAdditions.h"
+#import "WebImageManager.h"
 
 static NSString *cellId = @"cellId";
 @interface ViewController ()<UITableViewDataSource>
@@ -47,6 +48,7 @@ static NSString *cellId = @"cellId";
     
     self.view = _tableView;
     
+    NSLog(@"%@",[WebImageManager sharedManager]);
 }
 
 - (void)viewDidLoad {
