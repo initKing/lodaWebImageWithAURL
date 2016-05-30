@@ -112,58 +112,14 @@ static NSString *cellId = @"cellId";
     cell.titleLabel.text = model.name;
     cell.loadCountLabel.text = model.download;
     
-    // 判断如果缓冲池中有视图
-    UIImage *image = _imageCache[model.icon];
-    if (image != nil) {
-        cell.iconView.image = image;
-    }
     
-    UIImage *cacheImage = [UIImage imageWithContentsOfFile:[self cachePathWithUrlString:model.icon]];;
-    // 判断沙盒中是否有图像
-    if (cacheImage != nil) {
-        // 1> 直接设置cell的image
-        cell.iconView.image = cacheImage;
-        
-        // 2> 将沙盒中的缓存保存至内存缓存 -- 内存缓存读写速度快
-        [_imageCache setObject:cacheImage forKey:model.icon];
-        
-        return cell;
-    }
-    
-    
-    // cell 复用 --> 使用 直接设置为nil 或 占位图像(推荐)
-    cell.iconView.image = nil;
-  
-    // 使用异步加载图像
-    NSBlockOperation *operatin = [NSBlockOperation blockOperationWithBlock:^{
-        NSLog(@"异步下载图像");
-        NSURL *url = [NSURL URLWithString:_imageList[indexPath.row].icon];
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        UIImage *image = [UIImage imageWithData:data];
-        
-        if (image != nil) {
-            [_imageCache setObject:image forKey:model.icon];
-            
-            // 将图像写入沙盒
-            [data writeToFile:[self cachePathWithUrlString:model.icon] atomically:YES];
-        }
-        
-        // 下载完成后 将图像地址对应的 操作从操作缓冲池中移除
-        [_operationCache removeObjectForKey:model.icon];
-       
         // 通知主线程更新 UI
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            cell.iconView.image = image;
-            NSLog(@"队列中的操作数%zd",_loadImageQueue.operationCount);
-        }];
+    [[WebImageManager sharedManager] downloadImageWithUrlString:model.icon compeletion:^(UIImage *image) {
         
+        cell.iconView.image = image;
     }];
-   
-    [_loadImageQueue addOperation:operatin];
-    // 将加载图像的操作 加入操作缓冲池
-    [_operationCache setObject:operatin forKey:model.icon];
-    
-    return cell;
+
+      return cell;
 }
 
 #pragma mark - 根据图像url返回图像的沙盒全路径

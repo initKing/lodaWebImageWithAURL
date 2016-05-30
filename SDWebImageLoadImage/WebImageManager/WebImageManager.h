@@ -30,4 +30,6 @@
  *  图像管理单例
  */
 + (instancetype)sharedManager;
+
+- (void)downloadImageWithUrlString:(NSString *)urlString compeletion:(void(^)(UIImage *))completion;
 @end
